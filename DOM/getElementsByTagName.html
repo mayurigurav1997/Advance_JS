@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DOM Example</h1>
+    <p>Here is a paragraph</p>
+    <p>Here is another Paragraph</p>
+    <p>Here is one more paegraph</p>
+    <script>
+        var myParagraphs = document.getElementsByTagName('p');
+        console.log(myParagraphs);
+        for(let i=0;i<myParagraphs.length;i++){
+            myParagraphs[i].style.color="red";  //dont use inline css
+            alert(`Show paragraph ${i}`)
+        }
+    </script>
+</body>
+</html>

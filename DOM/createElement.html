@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+
+   <div id="name"></div>
+
+    <script>
+        // Create HTML element using DOM
+        "use strict";
+
+        const suman = document.createElement("p");
+        const data = document.createTextNode("this is suman paragraph");
+
+        suman.appendChild(data);
+
+
+        const final = document.getElementById("name");
+
+        final.appendChild(suman);
+    </script>
+
+</body>
+</html>

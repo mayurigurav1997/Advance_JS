@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>jS Events</h1>
+    <button>Dont press me</button>
+
+
+
+    <script>
+         var btn = document.querySelector('button');
+
+        // function ouch(){
+        //     alert("Told you not to touch me");
+        // }
+
+        // btn.addEventListener('click',ouch);
+
+        // //addEventListener is a method
+        btn.addEventListener('click',function(){
+            alert("Told you not to touch me");
+        });
+    </script>
+</body>
+</html>
