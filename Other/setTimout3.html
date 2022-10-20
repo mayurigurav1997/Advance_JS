@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        setTimeout(() => {console.log("this is the first message")}, 5000);
+  setTimeout(() => {console.log("this is the second message")}, 3000);
+  setTimeout(() => {console.log("this is the third message")}, 1000);
+
+//   Notice that the first function does not create a 5-second "pause" before calling the second function. Instead, the first function is called, but waits 5 seconds to execute. While the first function is waiting to execute, the second function is called, and a 3-second wait is applied to the second function before it executes. Since neither the first nor the second function's timers have completed, the third function is called and completes its execution first. Then the second follows. Then finally the first function is executed after its timer finally completes.
+    </script>
+</body>
+</html>

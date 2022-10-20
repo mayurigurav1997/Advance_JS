@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- form for input -->
+    <div class="container" id="myform">
+        <input type="text" name="" id="food_name" placeholder="ENTER FOOD NAME" />
+        <input type="text" name="" id="country_of_origin" placeholder="COUNTRY" />
+        <input type="button" name="" id="add" value="ADD DATA">
+      </div>
+  
+      <!-- display the information from the form elements -->
+  
+      <table id="table_information" class="container table">
+        <tr>
+          <td>NAME</td>
+          <td>COUNTRY</td>
+        </tr>
+  
+      </table>
+    <script>
+        "use strict";
+
+        // add data from the form
+
+        document.getElementById("add").addEventListener("click", function () {
+        let food_name = document.getElementById("food_name");
+        let country_of_origin = document.getElementById("country_of_origin");
+        let table = document.getElementById("table_information");
+
+        // add rows
+        let rowCount = table.rows.length; // calculate the row number
+        let row = table.insertRow(rowCount); //insert the rows into the table
+
+        // add columns
+        row.insertCell(0).innerHTML = food_name.value;
+        row.insertCell(1).innerHTML = country_of_origin.value;
+        });
+    </script>
+</body>
+</html>

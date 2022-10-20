@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="firstHeading">Dreams</h1>
+    <h2 id="secondHeading">Flowers</h2>
+    
+    <ul class="ul" id="myul">
+        <li class="chilul" >This</li>
+        <li class="chilul">is</li>
+        <li class="chilul">list of</li>
+        <li class="chilul" id="last_ele">dreams</li>
+    </ul>
+    <h3 id="thirdHeading">Fruits</h3>
+
+    <script>
+        let ul1 = document.getElementById('myul');
+        let atri = ul1.getAttribute('id');
+        let atrc = ul1.getAttribute('class');
+        console.log(`id is ${atri}`);
+        console.log(`class is ${atrc}`);
+
+    </script>
+</body>
+</html>

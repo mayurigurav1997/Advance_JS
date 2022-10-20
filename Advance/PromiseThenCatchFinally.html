@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let stocks = {
+            Fruits: ["strawberry", "grapes", "banana", "apple"],
+            liquid: ["water", "ice"],
+            holder: ["cone", "cup", "stick"],
+            toppings: ["chocolate", "peanuts"],
+        };
+
+        let is_shop_open = true;
+        let order = (time, work) => {
+
+            return new Promise((resolve, reject) => {
+
+                if (is_shop_open) {
+
+                    setTimeout(() => {
+
+                        // work is 👇 getting done here
+                        console.log("Function is invoked");
+                        resolve(work());
+
+                        // Setting 👇 time here for 1 work
+                    }, time)
+
+                }
+
+                else {
+                    console.log("A");
+                    reject(console.log("Our shop is closed"));
+                    console.log("B");
+                }
+
+            })
+        }
+        console.log("D");
+
+        order(2000, () => console.log(`${stocks.Fruits[0]} was selected`))
+
+            .then(() => {
+                return order(0000, () => console.log('production has started'));
+            })
+
+            .catch(()=>{
+                console.log("Customer left");
+            })
+
+            .finally(() =>{
+                console.log("Our shop is closed");
+            });
+
+            console.log("E");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="text"><br>
+    <button onclick="foo()">Click Me</button>
+    <script>
+
+        async function foo() {
+            let res = document.getElementById("text").value;
+            console.log(res);
+            let result = await fetch(`https://api.covid19api.com/dayone/country/${res}`);
+            let final = await result.json();
+            console.log(final);
+            for (var i = 0; i < final.length; i++) {
+                // console.log();
+                let ele = document.createElement("div");
+                ele.innerHTML = `Active:${final[i].Active} Deaths:${final[i].Deaths}`;
+                document.body.append(ele);
+            }
+        }
+    </script>
+</body>
+
+</html>

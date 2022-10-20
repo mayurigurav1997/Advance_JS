@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Fetch Data from Github API using Promise Chaining
+        const url = "https://api.github.com/users/";
+
+        // function will load the data from the URL
+        function load_data(url) {
+            return fetch(url).then((response) => response.json());
+        }
+
+        function Suman(name1) {
+            return load_data(`https://api.github.com/users/${name1}`);
+        }
+
+        function display(url) {
+            return new Promise(function (resolve, reject) {
+                let github_pic = document.createElement("img");
+                github_pic.src = url.avatar_url;
+                document.body.append(github_pic);
+            });
+        }
+
+        // loading the data into the HTML
+        load_data(url)
+            .then((user) => Suman('sgangopadhyay'))
+            .then(display)
+    </script>
+</body>
+
+</html>

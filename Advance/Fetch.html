@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //fetch always return a promise
+        //using fetch we can send the data to server or load data from a server
+        //fetch returns a promise 
+        //fetch is a function 
+        //fetch get response
+
+        // The Fetch() API
+
+        const url = "https://623bf4808e9af58789499ff0.mockapi.io/suman/friends";
+
+        // The Tradational Way to use fetch() API using async & await function
+
+        // async function Suman(url) {
+        //     let data = await fetch(url);
+        //     if (data.ok) {
+        //         return data.json();
+        //     } else {
+        //         return data.status;
+        //     }
+        // }
+
+        // let guvi = Suman(url);
+
+        // guvi
+        //     .then(function (value) {
+        //         console.log(JSON.stringify(value));
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     })
+        //     .finally(function () {
+        //         console.log("The fetch() API ran successfully !");
+        //     });
+
+
+        // The mordern way to use the fetch() API
+        //fetching data
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => console.log(JSON.stringify(data)));
+    </script>
+</body>
+
+</html>

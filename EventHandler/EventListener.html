@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>jS Events</h1>
+    <h1 id="heading">JS Events</h1>
     <button>Dont press me</button>
 
 
@@ -24,6 +24,10 @@
         // //addEventListener is a method
         btn.addEventListener('click',function(){
             alert("Told you not to touch me");
+        });
+
+        document.getElementById('heading').addEventListener('click',function(){
+            alert("You have click on heading");
         });
     </script>
 </body>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        //Functions running in parallel with other functions are called asynchronous
+       //it does not wait for another function to complete
+        console.log("This is asynchronous programmming");
+        //this will print first
+        setTimeout(function(){
+            for(let i=0;i<20;i++){
+                console.log(`This is index number ${i}`);
+            }
+        },1000);//this will print last
+
+        console.log("done prinitng");
+        //This will print second
+        //setTimeout is called  and waiting to execute  , while setTimeout is waiting to execute , next line will execute.
+
+        //setTimeout is not blocking execution of next line
+
+    </script>
+</body>
+</html>

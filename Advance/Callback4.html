@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="student_id">
+     <ul id="students">
+       
+        </ul>
+    </div>
+    <script>
+        const students = [{name:"mayuri",subject:"Javascript"},
+        {name:"rushi",subject:"CSS"}
+         ];
+
+         function enrollStudent(student , callback){
+             setTimeout(function (){
+                 students.push(student);
+                 callback();
+             },7000);
+         }
+         function getStudents(){
+
+            //setTimeout is asynchronous function
+             setTimeout(function(){
+                 let str = "";
+                 students.forEach(function(student){
+                     str+=`<li>${student.name}</li>`;
+                 });
+                 document.getElementById("students").innerHTML = str;
+             },1000);
+         }
+    enrollStudent({name:"prathmesh",subject:"HTML"},getStudents);
+    // getStudents();    //it wont print prathmesh because of asynchrous so we pass  function as anargument it is called callback function
+    </script>
+</body>
+</html>

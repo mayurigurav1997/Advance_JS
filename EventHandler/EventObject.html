@@ -20,6 +20,10 @@
         // //addEventListener is a method
         //evt is an object
         btn.addEventListener('click',function(evt){
+            console.log(evt);
+            let variable = evt.target; //evt.target will give elment on which we have clicked
+            console.log(variable);
+
             evt.target.style.backgroundColor="red";
             alert("Told you not to touch me");
         });
@@ -27,8 +31,13 @@
         var link = document.querySelector("a");
         link.addEventListener("click",function(ev){
             //preventDefault will prevent to go to link
+
             ev.preventDefault();
             alert("Sorry ,no Google for you");
+
+            let position = evt.offsetX; //it will give the position where we click on it relative to its element
+            //offsetY is same as offsetX
+            // clientX and client Y is also similar but it will give location relative to window
         })
     </script>
 </body>

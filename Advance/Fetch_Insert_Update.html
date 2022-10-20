@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        const url = "https://6240231e0adaf66ad74a3dc5.mockapi.io/Mayuri/friends/";
+
+        //fetch data from Server
+        // fetch(url)
+        // .then((response) => response.json())
+        // .then((data) => console.log(JSON.stringify(data)));
+
+
+        //insert the data 
+        // const data = {name:"Mayuri" , country:"India" , pics:"example.com"};
+
+        // fetch(url,{
+        //     method:"POST",
+        //     headers:{
+        //         "Content-Type":"application/json",
+        //     },
+        //     body:JSON.stringify(data)
+        // }).then((response) => response.json())
+        // .then((data) => {
+        //     console.log(data);
+        // }).catch((error) => {
+        //     console.log("error: ",error);
+        // });
+
+        //update the data 
+        // const url1 = "https://6240231e0adaf66ad74a3dc5.mockapi.io/Mayuri/friends/5";
+
+        // const data1 = {name:"Prathmesh", country:"Austrillia" ,pics:"example2.com"};
+
+        // fetch(url1,{
+        //     method:"PUT",
+        //     headers:{
+        //         "Content-Type":"application/json",
+        //     },
+        //     body:JSON.stringify(data1)
+        // }).then((response) => response.json())
+        // .then(data => console.log("data is updated"));
+
+        //delete the data 
+        const url3 = "https://6240231e0adaf66ad74a3dc5.mockapi.io/Mayuri/friends/11";
+
+        fetch(url3,{
+            method:"DELETE"
+        }).then(console.log("Data is deleted"));
+
+
+    </script>
+</body>
+</html>

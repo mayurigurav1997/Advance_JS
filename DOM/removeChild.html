@@ -8,14 +8,17 @@
 </head>
 <body>
     <div id="special">
-        <p>Here is a paragraph</p>
-        <p>Here is another paragraph</p>
+        <p >Here is a paragraph1</p>
+        <p>Here is another paragraph2</p>
+        <p>Here is another paragraph3</p>
+        <p id="last">Here is another paragraph4</p>
 
     </div>
 
     <script>
         var myDiv = document.querySelector('div');
         myDiv.removeChild(myDiv.children[0]);
+        myDiv.removeChild(document.getElementById('last'));
     </script>
 </body>
 </html>

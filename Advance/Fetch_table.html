@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            width: 150px;
+            height: 50px;
+            border: 1px sold grey;
+            border-radius: 15px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="button">Click Here</button>
+</body>
+<script>
+    const url = "https://623bf4808e9af58789499ff0.mockapi.io/suman/friends";
+
+    const btn = document.getElementById("button");
+    btn.addEventListener("click", () => {
+        console.log("Button is clicked");
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                let table = document.createElement("table");
+                document.body.appendChild(table);
+                for (let i = 0; i < data.length; i++) {
+                    // console.log(data[i]);
+                    let rowCount = table.rows.length;
+                    // console.log(rowCount);
+                    let row = table.insertRow(rowCount);
+                    row.insertCell(0).innerHTML = data[i].first_name;
+                    row.insertCell(1).innerHTML = data[i].last_name;
+                    let img = document.createElement("img");
+                    img.src = data[i].image;
+                    img.width = 200;
+                    img.height = 100;
+                    // console.log(img);
+                    // row.insertCell(2).innerHTML = img;
+                    row.insertCell(2).appendChild(img);
+                }
+            });
+    });
+
+
+
+</script>
+
+</html>

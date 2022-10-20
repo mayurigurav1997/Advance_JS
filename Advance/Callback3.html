@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="Mayuri">
+
+    </div>
+    
+    <script>
+        const url = "https://api.thedogapi.com/v1/breeds";
+
+        function Mayuri(data){
+            let mayuri = document.getElementById("Mayuri");
+            mayuri.innerHTML = data;
+        };
+
+        function Guvi(url,my_callback_function){
+            let request = new XMLHttpRequest();
+            request.open('GET',url);
+            request.onload = function(){
+                if(request.status == 200){
+                    my_callback_function(this.responseText);
+                }
+                else{
+                    my_callback_function(request.status);
+                }
+            };
+            request.send();
+        };
+        Guvi(url , Mayuri);
+    </script>
+</body>
+</html>

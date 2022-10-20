@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        //example1 promise returned to function
+        function func1() {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    const error = true;
+                    if (!error) {
+                        console.log("Promise has been resolved");
+                        resolve();
+                    } else {
+                        console.log("Promise has not been resolved");
+                        reject("Sorry not fullfilled");
+                        console.log("HI");
+                    }
+
+                }, 2000);
+            })
+        }
+        func1().then(function () {
+            console.log("Thanks for resolving");
+        }).catch(function (error) {
+            console.log("Its not good Bro " + error);
+        });
+      
+
+        //example 2.1  variable contain promise
+        var age = 19;
+        var p1 = new Promise((resolve, reject) => {
+            if (age >= 18) {
+                resolve("you are eligible to vote!!!!");
+            }
+            else {
+                reject("you are not eligible to vote!!!!");
+            }
+        });
+        console.log(p1);
+        p1.then((data) => console.log(data))
+            .catch((error) => console.log(error));
+
+        //example 2.2
+        var p1 = new Promise((resolve, reject) => {
+            if (true) {
+                setTimeout(() => {
+                    resolve("Your p1  is resolved ");
+                }, 2000);
+            }
+            else {
+                reject("your p1 is rejected");
+            }
+        });
+        console.log(p1); //returns the promise object
+        p1.then(data => console.log(data))  //returns a "Your p1  is resolved "
+        .catch((error) => console.log(error));
+
+    </script>
+</body>
+
+</html>

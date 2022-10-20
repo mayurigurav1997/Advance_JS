@@ -12,10 +12,12 @@
    <div id="name"></div>
 
     <script>
-        // Create HTML element using DOM
         "use strict";
 
+        // Create HTML element using DOM
         const suman = document.createElement("p");
+        suman.id='Name';
+        suman.className="person";
         const data = document.createTextNode("this is suman paragraph");
 
         suman.appendChild(data);

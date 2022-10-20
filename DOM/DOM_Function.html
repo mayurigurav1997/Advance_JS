@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        var e1 = createele("div", "class", "main", "this is a div1");
+        var e2 = createele("div", "class", "batch", "this is a div2");
+        document.body.append(e1, e2);
+        //append can add multiple elements but appendChild will add only one child
+
+        function createele(elementname, attributename, attributevalue, content) {
+            var ele = document.createElement(elementname);
+            ele.setAttribute(attributename, attributevalue);
+            ele.innerHTML = content;
+            return ele;
+        }
+        var button=document.createElement("button");
+        button.addEventListener("click",foo);
+        button.innerHTML="click me";
+        document.body.append(button);
+
+        function foo(){
+            alert("hello world");
+        }
+
+    </script>
+
+</body>
+
+</html>

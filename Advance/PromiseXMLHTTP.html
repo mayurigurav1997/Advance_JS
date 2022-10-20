@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const url = "https://restcountries.com/v3.1/all";
+
+        function Mayuri(url) {
+            let mayuri_promise = new Promise(function (resolve, reject) {
+                let request = new XMLHttpRequest();
+                request.open('GET', url);
+                request.onload = function () {
+                    if (request.status == 200) {
+                        resolve(request.responseText);
+
+                    } else {
+                        reject("Error happend in your Programm");
+                    };
+
+                };
+                request.send();
+            });
+            return mayuri_promise;
+        }
+
+        let promise = Mayuri(url);
+
+        const mayuri_promise_consumer = () => {
+            promise.then(result => {
+                console.log(result);
+            }, (error) => {
+                console.log("Error with url: " + error);
+            });
+        };
+        mayuri_promise_consumer();
+    </script>
+</body>
+
+</html>

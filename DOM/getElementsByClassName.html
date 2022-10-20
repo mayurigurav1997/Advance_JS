@@ -8,13 +8,13 @@
 </head>
 <body>
     <h1>DOM Example</h1>
-    <p class="special">Here is a paragraph</p>
-    <p>Here is another Paragraph</p>
-    <p class="special">Here is one more paegraph</p>
+    <p class="special">Here is a paragraph1</p>
+    <p>Here is another Paragraph2</p>
+    <p class="special">Here is one more paegraph3</p>
 
     <script>
-         var myClass=document.getElementByClassName('special');
-
+         var myClass=document.getElementsByClassName('special');
+         console.log(myClass);
          for(let i=0;i<myClass.length;i++){
              myClass[i].style.color="red";
          }

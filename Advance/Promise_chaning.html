@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //example1
+        let mayuri = new Promise(function (resolve, reject) {
+            let data = "Suman";
+            resolve(data + " " + "is the data manager");
+            reject(data + " " + "outsider");
+        });
+
+        mayuri.then(value => {
+            console.log('Promise is fulfilled');
+        }).catch(error => {
+            console.log('Promise is rejected');
+        }).finally(() => {
+            console.log('Deal Closed!!');
+        });
+
+        //example 2
+        function mul(num) {
+            return new Promise((resolve, reject) => {
+                return setTimeout(() => resolve(2 * num), 3000);
+            });
+        }
+        mul(5).then((v1) => {
+            console.log(v1);
+            return mul(v1);//mul(10)
+        }).then((v2) => {
+            console.log(v2);//20
+        }).catch((error) => console.log(error));
+    </script>
+</body>
+
+</html>

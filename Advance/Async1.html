@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let Mayuri1 = async () => {
+            return "I love in Delhi";
+        }
+        console.log(Mayuri1()); //returns a promise
+        Mayuri1().then((data) => console.log("Hi " +data));
+
+        // let odd_even = async (number) => {
+        //     if (number % 2 == 0) {
+        //         return "Even";
+        //     } else {
+        //         return "Odd";
+        //     };
+        // };
+        // odd_even(5).then(data => console.log(data)
+        // );
+
+        
+        //to handle errors in async and await
+        //we have try-catch block
+
+        function pri() {
+            console.log("HI");
+            return "Hello";
+        }
+        async function mul() {
+            try {
+                let res = await pri();
+                console.log(res);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        mul();
+    </script>
+</body>
+
+</html>

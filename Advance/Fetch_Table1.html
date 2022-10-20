@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+        }
+        table,td{
+            border:1px solid black;
+            border-collapse: collapse;
+            background-color:rgb(253, 214, 221);
+        }
+        form{
+            border:1px solid black;
+            width:300px;
+            height:300px;
+            background-color:rgb(229,209,238);
+            margin:40px;
+        }
+        input{
+            border:none;
+            outline:none;
+            padding:6px;
+            margin:10px;
+        }
+        label{
+            margin:10px;
+            padding:8px;
+        }
+        button{
+            margin:10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <form action="">
+            <label>Id:</label><input type="text" id="Id"><br>
+            <label>Name:</label><input type="text" id="Name"><br>
+            <label>Country:</label><input type="text" id="Country"><br>
+            <label>Pics:</label><input type="text" id="Pics"><br>
+
+            <button id="insert">Insert</button>
+            <button id="update">Update</button>
+            <button id="delete">Delete</button>
+        </form>
+    </div>
+    <div class="table">
+        <table id="table">
+            <th>
+                <tr>
+                    <td>Name</td>
+                    <td>Country</td>
+                    <td>Pics</td>
+                    <td>Id</td>
+                </tr>
+            </th>
+            <tbody id="table_body">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let btn1 = document.getElementById("insert");
+        let btn2 = document.getElementById("update");
+        let btn3 = document.getElementById("delete");
+        let Name = document.getElementById("Name");
+        let Country = document.getElementById("Country");
+        let Pics = document.getElementById("Pics");
+        const url = "https://6240231e0adaf66ad74a3dc5.mockapi.io/Mayuri/friends/";
+        
+
+        btn3.addEventListener("click",async(eve3) => {
+            eve3.preventDefault();
+            //delete
+            let Id = document.getElementById("Id");
+            let urlNew = url + Id.value;
+            await fetch(urlNew,{
+            method:"DELETE"
+        }).then(console.log("Data is deleted"));
+            display();
+        })
+
+        btn2.addEventListener("click", async(eve1) => {
+            eve1.preventDefault();
+            // console.log("btn is clicked");
+            // console.log(urlNew);
+            //update
+            let Id = document.getElementById("Id");
+            let urlNew = url + Id.value;
+            console.log(urlNew);
+            const data2 = { name: Name.value, country: Country.value, pics: Pics.value };
+            console.log(data2);
+            await fetch(urlNew, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data2)
+            }).then((response) => response.json())
+                .then(data => console.log("data is updated"));
+            display();
+        });
+
+
+        btn1.addEventListener("click", async(eve) => {
+            eve.preventDefault();
+            console.log("btn is clicked");
+
+            // insert the data
+            const data = { name: Name.value, country: Country.value, pics: Pics.value };
+
+            console.log(data);
+            await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data)
+            }).then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+
+            display();
+        });
+
+
+
+
+        function display() {
+            const url = "https://6240231e0adaf66ad74a3dc5.mockapi.io/Mayuri/friends/";
+
+            fetch(url).then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    let tableData = "";
+                    data.map((values) => {
+                        tableData += `<tr>
+                        <td>${values.name}</td>
+                        <td>${values.country}</td>
+                        <td>${values.pics}</td>
+                        <td>${values.id}</td>
+                        </tr>`
+                    })
+                    document.getElementById("table_body").innerHTML = tableData;
+                });
+
+        }
+        display();
+    </script>
+
+</body>
+
+</html>

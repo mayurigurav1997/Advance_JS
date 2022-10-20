@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //promises an example
+        function Suman(data) {
+            console.log(data);
+        }
+        // A promise is an Object
+        //Promise is a special kind of callback function which calls resolve and reject function
+        //it produces a result after either the function is successful or not
+        //promise has two outputs 1.resolve 2.rejeccted
+        //resolve and reject are inbulid function in javascript
+        //promise is always in one of the three states pending:initial state,neither fullfilled nor rejected
+        //fullfilled operation completed successfully
+        //rejected:meaning the operation is failed
+        // create a promise
+        //to resolve callback hell we use promise
+        //suman_promise is an promise object
+        let suman_promise = new Promise(function (resolve, reject) { //callback function  
+            //first argument resolve is inbuilt function which when called changes the status of Promise from pending to resolve
+            // promise code body
+            let number = 99;
+            if (number % 2 == 0) {
+                console.log("A");
+                resolve("EVEN NUMBER");
+                console.log("B");
+            } else {
+                reject("ODD NUMBER");
+            }
+            console.log("D");
+        });
+        // call the promise 
+         //first argument is callback function which executes when the promise state is fullfilled/resolved
+        suman_promise.then(function (value) {    //success callback
+            // when the promise is succesfull
+            Suman(value + "Hi");          
+        },function (error) {                    //failure callback
+            // when the promise is a failure
+            Suman(error + "Error");
+        });
+        // The .then() method takes up to two arguments; the first argument is a callback function for the resolved case of the promise, and the second argument is a callback function for the rejected case.
+        // A .catch() is really just a .then() without a slot for a callback function for the case when the promise is resolved.
+        // let my_promise = new Promise(function(resolve, reject){let conditionif(condition is met){resolve('when the promise is kept and fulfilled')}else{reject('when the promise is not kept')}})
+
+          //if promise is resolve it will execute then method
+        //if promise is rejected it will run catch method
+
+    </script>
+</body>
+
+</html>

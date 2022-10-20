@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="container" id="clock">
+
+    </div>
+
+    <script>
+        function Suman(name , byeText){
+        document.write("Hello good morning" + name + byeText);
+        }
+        //Callback function - It will call other function as parameter.
+        //run after 4 sec in fixed position
+        //execute only once
+        setTimeout(Suman, 4000,"Mayuri", "take care");
+        //allos us to run the function once after the interval of time
+
+    </script>
+</body>
+</html>

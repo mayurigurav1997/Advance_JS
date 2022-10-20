@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //an async function is a syntatic sugar for writing the promises
+        // async function returns a value wrapped in a promise
+        //async is a better way to write a promise
+        //once we declare function async it will become promise
+        //async function returned value will use in promiseResult or in then()
+        //to handle error we can use try catch in async
+
+//         async function myFunction() {
+//   return "Hello";
+// }
+// Is the same as:
+// function myFunction() {
+//   return Promise.resolve("Hello");
+// }
+        async function Mayuri(data) {
+            console.log("Hi");
+            return("I am Mayuri Gurav"+data);
+        };
+
+        console.log(Mayuri(" Pune"));
+        Mayuri(" Mumbai").then(function (data) {
+            console.log(data);
+        });
+         
+        // async function odd_even(Number){
+        //     if(Number%2==0){
+        //         return "Even";
+        //     }
+        //     else{
+        //         return "Odd";
+        //     }
+        // };
+        // console.log(odd_even(9));
+        // odd_even(12).then(function(data){
+        //     console.log(data);
+        // });
+
+        // async function table1(number){
+        //     for(let i=1;i<=10;i++){
+        //         console.log(i*number);
+        //     }
+        // }
+        
+        // console.log(table1(4));
+        // table1(7).then(function(data){
+        //     console.log(data);
+        // });
+      
+
+
+    </script>
+</body>
+
+</html>
